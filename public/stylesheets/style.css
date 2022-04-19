@@ -1,0 +1,16 @@
+body {
+  background-color: darkblue;
+  text-align: center;
+}
+
+img {
+  max-height: 250vw;
+}
+
+h1 {
+  color: white;
+}
+
+p {
+  color: white;
+}
