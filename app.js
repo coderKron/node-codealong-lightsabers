@@ -7,17 +7,15 @@ app.set("view engine", "hbs");
 app.use(express.static("public"));
 
 app.get("/about", (req, res, next) => {
-  console.log("A request on the ABOUT page was received...");
-
-  res.sendFile(__dirname + "/views/about.html");
+  res.render("about");
 });
 
 app.get("/", (req, res, next) => {
-  res.sendFile(__dirname + "/views/home.html");
+  res.render("home");
 });
 
 app.get("/contact", (req, res, next) => {
-  res.sendFile(__dirname + "/views/contact.html");
+  res.render("contact");
 });
 
 app.get("/jedis", (req, res, next) => {

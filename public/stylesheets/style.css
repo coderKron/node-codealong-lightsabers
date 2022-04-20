@@ -27,6 +27,11 @@ p {
   color: white;
 }
 
+#navbar li a:hover {
+  text-decoration: underline;
+  font-size: 150%;
+}
+
 .header {
   display: flex;
   align-items: center;
