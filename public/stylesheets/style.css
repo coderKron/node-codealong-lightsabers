@@ -36,3 +36,11 @@ p {
 .photos {
   max-height: 600px;
 }
+
+.stores {
+  color: white;
+}
+
+.links {
+  color: red;
+}

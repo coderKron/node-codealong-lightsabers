@@ -28,6 +28,7 @@ app.get("/jedis", (req, res, next) => {
     price: 12999,
     imageFile: "jedi-lightsaber.webp",
     text: "We create the lightsabers in house. The Jedi lightsabers can come in whatever color you want except for red. Don't think your master will like that!",
+    stores: ["Galaxy far far away", "Alabama", "tatooine"],
   };
 
   res.render("products.hbs", data);

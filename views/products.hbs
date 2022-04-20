@@ -15,6 +15,7 @@
           <li><a href="/siths">Siths</a></li>
           <li><a href="/jedis">Jedis</a></li>
           <li><a href="/guns">Guns</a></li>
+          <li><a href="/sluggos">Sluggos</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
@@ -26,7 +27,33 @@
       <p>
         {{text}}
       </p>
-      <img class="photos" src="/images/{{imageFile}}" alt="lightsaber" />
+      {{#if imageFile}}
+        <img class="photos" src="/images/{{imageFile}}" alt="{{title}}" />
+      {{else}}
+        <img
+          class="photos"
+          src="http://via.placeholder.com/640x360"
+          alt="{{title}}"
+        />
+      {{/if}}
+    </div>
+
+    <div>
+      {{#if stores}}
+        <h4 style="color: white;">The product is available in the following
+          stores</h4>
+        <div class="row">
+          <ul>
+            {{#each stores}}
+              <li class="stores">
+                {{this}}
+                <a class="links" href="#">More details!</a></li>
+            {{/each}}
+          </ul>
+        </div>
+      {{else}}
+        <h3 style="color: red;">Currently not in stock</h3>
+      {{/if}}
     </div>
   </body>
 </html>
