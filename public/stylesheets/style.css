@@ -14,3 +14,25 @@ h1 {
 p {
   color: white;
 }
+
+#navbar {
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#navbar li a {
+  text-decoration: none;
+  color: white;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photos {
+  max-height: 600px;
+}
