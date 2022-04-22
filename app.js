@@ -30,28 +30,14 @@ app.get("/contact", (req, res, next) => {
   res.render("contact");
 });
 
-app.get("/jedis", (req, res, next) => {
-  Product.findOne({ title: "Jedi lightsaber" })
+app.get("/products/:productId", (req, res, next) => {
+  Product.findById(req.params.productId)
     .then((productDetails) => {
       res.render("products.hbs", productDetails);
     })
-    .catch();
-});
-
-app.get("/siths", (req, res, next) => {
-  res.render("products.hbs");
-});
-
-app.get("/guns", (req, res, next) => {
-  res.render("products.hbs");
-});
-
-app.get("/sluggos", (req, res, next) => {
-  res.render("products.hbs");
-});
-
-app.get("/products/:title", (req, res) => {
-  res.send(req.params);
+    .catch((err) => {
+      console.log("error getting from DB" + err);
+    });
 });
 
 app.get("/search", (req, res, next) => {

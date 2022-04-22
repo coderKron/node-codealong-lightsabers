@@ -34,14 +34,10 @@ Product.insertMany(data)
     console.log(`${response.length} created`);
     console.log(response);
   })
+  .then(() => {
+    mongoose.connection.close();
+  })
   .catch((err) => {
     console.log("Error creating data");
     console.log(err);
   });
-
-Product.findOneAndUpdate(
-  ({ title: "Jedi lightsaber" },
-  { imgSrc: "../public/images/jedi-lightsaber.webp" })
-).then(() => {
-  mongoose.connection.close();
-});
