@@ -1,10 +1,22 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const Product = require("./models/Product.model");
 const app = express();
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
 
 app.use(express.static("public"));
+
+// connect to db
+mongoose
+  .connect("mongodb://localhost/ironborn-ecommerce")
+  .then((x) =>
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  )
+  .catch((err) => console.error("Error connecting to mongo", err));
+
+//routes
 
 app.get("/about", (req, res, next) => {
   res.render("about");
@@ -19,53 +31,34 @@ app.get("/contact", (req, res, next) => {
 });
 
 app.get("/jedis", (req, res, next) => {
-  // res.sendFile(__dirname + "/views/jedi-lightsabers.html");
-
-  const data = {
-    title: "Jedi Lightsabers",
-    price: 12999,
-    imageFile: "jedi-lightsaber.webp",
-    text: "We create the lightsabers in house. The Jedi lightsabers can come in whatever color you want except for red. Don't think your master will like that!",
-    stores: ["Galaxy far far away", "Alabama", "tatooine"],
-  };
-
-  res.render("products.hbs", data);
+  Product.findOne({ title: "Jedi lightsaber" })
+    .then((productDetails) => {
+      res.render("products.hbs", productDetails);
+    })
+    .catch();
 });
 
 app.get("/siths", (req, res, next) => {
-  const data = {
-    title: "Sith Lightsabers",
-    price: 29999,
-    imageFile: "sith-lightsaber.jpeg",
-    text: "We create the lightsabers in house. The Sith lightsabers can come in red. The high price is because for tricking the jedi that we're not creating sith lightsabers. If you're a jedi reading this. This is a joke ofcourse.",
-  };
-
-  res.render("products.hbs", data);
+  res.render("products.hbs");
 });
 
 app.get("/guns", (req, res, next) => {
-  const data = {
-    title: "Guns",
-    price: "10000 - 19999",
-    imageFile: "guns.webp",
-    text: "Guns go pew pew pew",
-  };
-  res.render("products.hbs", data);
+  res.render("products.hbs");
 });
 
 app.get("/sluggos", (req, res, next) => {
-  // res.sendFile(__dirname + "/views/jedi-lightsabers.html");
-
-  const data = {
-    title: "Giant talking sluggos",
-    price: 950.0,
-    imageFile: "sluggos.webp",
-    text: "buy sluggos",
-  };
-
-  res.render("products.hbs", data);
+  res.render("products.hbs");
 });
 
-app.listen(3001, () => {
+app.get("/products/:title", (req, res) => {
+  res.send(req.params);
+});
+
+app.get("/search", (req, res, next) => {
+  res.send(req.query);
+  console.log(req.query);
+});
+
+app.listen(3000, () => {
   console.log("server listening to requests on port 3000");
 });

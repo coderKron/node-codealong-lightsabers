@@ -15,16 +15,33 @@ p {
   color: white;
 }
 
-#navbar {
+header {
+  display: flex;
   list-style: none;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbar {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #navbar li a {
   text-decoration: none;
   color: white;
+  text-align: center;
 }
 
 #navbar li a:hover {
@@ -36,6 +53,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .photos {
