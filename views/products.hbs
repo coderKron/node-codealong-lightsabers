@@ -20,11 +20,9 @@
     <h4 style="color: white;">The product is available in the following stores</h4>
     <div class="row">
       <ul>
-        {{#each stores}}
-          <li class="stores">
-            {{this}}
-            <a class="links" href="#">More details!</a></li>
-        {{/each}}
+        <li class="stores">
+          {{stores}}
+          <a class="links" href="#">More details!</a></li>
       </ul>
     </div>
   {{else}}

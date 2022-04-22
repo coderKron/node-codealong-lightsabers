@@ -30,6 +30,16 @@ app.get("/contact", (req, res, next) => {
   res.render("contact");
 });
 
+app.get("/productList", (req, res, next) => {
+  Product.find()
+    .then((arrOfProducts) => {
+      res.render("productList", { products: arrOfProducts });
+    })
+    .catch((error) => {
+      console.log("error getting products from DB", error);
+    });
+});
+
 app.get("/products/:productId", (req, res, next) => {
   Product.findById(req.params.productId)
     .then((productDetails) => {

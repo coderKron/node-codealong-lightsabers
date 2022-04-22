@@ -17,17 +17,30 @@ p {
 
 header {
   display: flex;
-  list-style: none;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 nav {
   display: flex;
-  list-style: none;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+
+li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+a:hover {
+  text-decoration: underline;
+  font-size: 150%;
 }
 
 #navbar {
@@ -48,6 +61,11 @@ nav {
   text-decoration: underline;
   font-size: 150%;
 }
+#productlist {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .header {
   display: flex;
@@ -66,4 +84,8 @@ nav {
 
 .links {
   color: red;
+}
+
+.some {
+  max-height: 75px;
 }
