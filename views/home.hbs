@@ -1,3 +1,31 @@
 <h1>Home</h1>
 <p>The world leading Lightsabers seller for jedi and sith alike.</p>
 <img src="./images/lightsaber2.jpeg" />
+
+<div style="display: flex; Flex-direction: column;">
+  <div>
+    <p>Search products:</p>
+    <form action="/products" method="GET">
+      <label style="color: white;">
+        Maximum price:
+        <input type="number" min="1" name="maxPrice" />
+      </label>
+      <button>Submit</button>
+    </form>
+  </div>
+
+  <div id="create-form" class="form-container">
+    <p>Create product:</p>
+    <form style="flex-direction: column;" action="/products/new" method="POST">
+      <label style="color: white;">
+        Products Title:
+        <input type="text" name="title" />
+      </label>
+      <label style="color: white;">
+        Product price:
+        <input type="number" min="1" name="price" />
+      </label>
+      <button>Submit</button>
+    </form>
+  </div>
+</div>
